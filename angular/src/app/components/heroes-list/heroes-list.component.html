@@ -1,0 +1,20 @@
+<div class="ui segment">
+    <div class="ui top left attached label">heroes-list.component</div>
+    <h5>Heroes Team</h5>
+    <div class="scroller">
+        <div class="ui inverted dimmer" [class.active]="loading">
+            <div class="ui loader"></div>
+        </div>
+        <div class="ui divided selection list">
+            <div
+                class="item"
+                *ngFor="let hero of heroes"
+                [class.active]="selectedHero && selectedHero.id === hero.id"
+                (click)="onSelect(hero)"
+            >
+                {{ hero.name }}<br />
+                <small>{{ hero.id }}</small>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="ui message">
+    <div class="ui top left attached label">messages.component</div>
+    <h5>Messages</h5>
+    <div class="ui list">
+        <div class="item" *ngFor="let message of messages">{{ message }}</div>
+    </div>
+    <div class="ui small button" (click)="clear()">Clear</div>
+</div>

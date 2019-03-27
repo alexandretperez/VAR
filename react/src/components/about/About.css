@@ -1,0 +1,7 @@
+:local(.p) {
+    font-size: 26px;
+}
+
+:local(.strong) {
+    color: #00d8ff;
+}

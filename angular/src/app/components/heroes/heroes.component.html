@@ -1,0 +1,25 @@
+<div class="ui grid">
+    <div class="ui top left attached label">heroes.component</div>
+    <div class="row">
+        <div class="ten wide column">
+            <div
+                class="ui massive circular icon green button"
+                (click)="onAdd()"
+                *ngIf="!selectedHero; else details"
+            >
+                <i class="plus icon"></i>
+            </div>
+            <ng-template #details>
+                <app-heroes-detail
+                    [hero]="selectedHero"
+                    (saved)="onSaved($event)"
+                    (deleted)="onDeleted($event)"
+                    (canceled)="onCanceled($event)"
+                ></app-heroes-detail>
+            </ng-template>
+        </div>
+        <div class="six wide column">
+            <app-heroes-list (selected)="onSelected($event)"></app-heroes-list>
+        </div>
+    </div>
+</div>

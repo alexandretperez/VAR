@@ -1,0 +1,28 @@
+<div class="ui top left attached label">television.component</div>
+<div class="ui form">
+    <div class="field">
+        <div class="ui icon input" [class.loading]="loading">
+            <input
+                type="text"
+                placeholder="Enter name or keywords. eg.: action, cars, music..."
+                [(ngModel)]="query"
+                (keydown.enter)="onSearch()"
+            />
+            <i class="circular search link icon" (click)="onSearch()"></i>
+        </div>
+    </div>
+    <div class="ui divided items">
+        <div class="item" *ngFor="let show of shows">
+            <img
+                [src]="show.image.medium"
+                *ngIf="show.image"
+                alt=""
+                class="image"
+            />
+            <div class="content">
+                <div class="header">{{ show.name }}</div>
+                <div class="description" [innerHTML]="show.summary"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+vue/node_modules
+angular/node_modules
+react/node_modules
+node-server/node_modules
+node-server/db.json
+.vscode

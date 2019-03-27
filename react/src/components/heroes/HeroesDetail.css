@@ -1,0 +1,8 @@
+.ui.card.form {
+    width: auto !important;
+}
+
+.ui.custom.message .header {
+    font-size: 36px;
+    padding: 1em;
+}
