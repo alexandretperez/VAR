@@ -8,38 +8,38 @@ export class Heroes extends Component {
     };
 
     onAdd = () => {
-        this.setState({
+        this.setState((state, props) => ({
             selectedHero: { id: null, name: '' }
-        });
+        }));
     };
 
     onSelected = hero => {
-        this.setState({
+        this.setState((state, props) => ({
             selectedHero: hero
-        });
+        }));
     };
 
     onSaved = hero => {
         console.log('Hero saved!', hero);
-        this.setState({
+        this.setState((state, props) => ({
             selectedHero: { ...hero }
-        });
+        }));
         this.refs.heroesList.loadHeroes();
     };
 
     onDeleted = () => {
         console.log('Hero deleted!');
-        this.setState({
+        this.setState((state, props) => ({
             selectedHero: null
-        });
+        }));
         this.refs.heroesList.loadHeroes();
     };
 
     onCanceled = () => {
         console.log('Changes canceled!');
-        this.setState({
+        this.setState((state, props) => ({
             selectedHero: null
-        });
+        }));
     };
 
     render() {

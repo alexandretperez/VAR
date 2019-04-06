@@ -18,14 +18,14 @@ export class HeroesList extends Component {
         this.loadHeroes();
     }
     async loadHeroes() {
-        this.setState({ loading: true });
+        this.setState((state, props) => ({ loading: true }));
         const heroes = await heroService.getHeroes();
-        this.setState({ heroes, loading: false });
+        this.setState((state, props) => ({ loading: false, heroes }));
     }
     onSelect(hero) {
-        this.setState({
+        this.setState((state, props) => ({
             selectedHero: hero
-        });
+        }));
 
         this.props.selected(hero);
     }

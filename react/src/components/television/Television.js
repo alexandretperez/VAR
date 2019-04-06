@@ -50,10 +50,11 @@ export class Television extends Component {
             loading: true
         });
         const result = await televisionService.getShows(query);
-        this.setState({ shows: result.map(p => p.show), loading: false });
+        this.setState((state, props) => ({ shows: result.map(p => p.show), loading: false }));
     };
 
     onChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
+        const newState = { [e.target.name]: e.target.value };
+        this.setState((state, props) => newState);
     };
 }

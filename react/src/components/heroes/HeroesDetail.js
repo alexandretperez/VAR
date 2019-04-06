@@ -15,29 +15,30 @@ export class HeroesDetail extends Component {
         };
     }
     componentWillReceiveProps(props) {
-        this.setState({
+        this.setState((state, _props) => ({
             hero: props.hero
-        });
+        }));
     }
     onSave = async () => {
-        this.setState({ loading: true });
+        this.setState((state, props) => ({ loading: true }));
         const hero = await heroService.save(this.state.hero);
-        this.setState({ loading: false, hero });
+        this.setState((state, props) => ({ loading: false, hero }));
         this.props.saved(this.state.hero);
     };
     onDelete = async () => {
-        this.setState({ loading: true });
+        this.setState((state, props) => ({ loading: true }));
         await heroService.delete(this.state.hero);
-        this.setState({ loading: false });
+        this.setState((state, props) => ({ loading: false }));
         this.props.deleted();
     };
     onCancel = () => {
         this.props.canceled();
     };
     onNameChange = e => {
-        this.setState({
-            hero: Object.assign(this.state.hero, { name: e.target.value })
-        });
+        const name = e.target.value;
+        this.setState((state, props) => ({
+            hero: { ...state.hero, name }
+        }));
     };
     render() {
         return (
